@@ -1,0 +1,28 @@
+.toplogo{
+  top: 30px;
+  right: 50px;
+  margin-right: 0px;
+  position: absolute;
+  text-align: right;
+}
+
+.text-bottom{
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 90%;
+  font-size: 1rem !important;
+}
+
+h1, h2, h3 {
+  font-weight: 300 !important;
+}
+
+.remark-slide-content {
+    font-size: 1.2rem !important;
+    line-height: 1.8;
+}
+
+.white-background {
+  background-color: #FFFFFF;
+}
