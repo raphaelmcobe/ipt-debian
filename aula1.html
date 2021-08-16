@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>O Sistema Operacional Debian</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Raphael Cobe" />
+    <script src="aula1_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="assets/custom.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: center, middle
+&lt;div class="toplogo"&gt;
+&lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+&lt;img src="img/debian_logo.png" style="width:10%;"/&gt;
+# Debian GNU/Linux
+Raphael Cobe (&lt;a href="mailto:raphaelmcobe@gmail.com"&gt;raphaelmcobe@gmail.com&lt;/a&gt;)
+#### Advanced Institute for Artificial Intelligence
+
+&lt;div class="text-bottom"&gt;Agosto de 2021&lt;/div&gt;
+
+
+
+---
+class: inverse center middle
+&lt;div class="toplogo"&gt;
+&lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+# Sistemas  Operacionais
+## Revisão
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class: middle
+&lt;div class="toplogo"&gt;
+&lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### O que é um sistema Operacional? 
+
+* Difícil de definir com precisão
+* Surgiram historicamente quando as pessoas precisavam resolver problemas associados ao uso de computadores.
+
+**Grande parte da história do sistema operacional impulsionada por fatores de custo relativos de hardware e pessoas.**
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class: middle
+&lt;div class="toplogo"&gt;
+&lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### O que é um sistema Operacional? 
+* O hardware começou muito caro em relação às pessoas e o custo relativo vem diminuindo desde então. 
+* No início: Hardware caro, pessoal barato 
+  * Objetivo: maximizar a utilização do hardware.
+* Agora: Hardware barato, pessoas caras 
+  * Objetivo: tornar mais fácil para as pessoas usarem o computador.
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Um pouco de história
+* No início:
+  * Computadores eram máquinas enormes, caras, difíceis de operar e manter. 
+    * Usado em modo interativo por um usuário único. 
+  * Interação em um nível muito baixo - botões do console, cartões no leitor de cartão, etc. 
+  * **A interface é basicamente o hardware bruto**.
+  
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Um pouco de história
+
+**Problema:** Código para manipular dispositivos de E/S externos. É muito complexo e é uma das principais fontes de dificuldade de programação.
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+--
+
+**Solução:** Construir uma biblioteca de sub-rotinas (drivers de dispositivos) para gerenciar a interação com os dispositivos de E/S. 
+* A biblioteca é carregada na memória e permanece lá.
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class: middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Um pouco de história
+
+* Década de 1940 - primeiras gerações (primeiros computadores digitais eletrônicos não tinham sistemas operacionais) 
+* Década de 1950 - segunda geração (Introdução dos cartões perfurados, **Sistemas de processamento em lote:**)
+* Década de 1960 - Terceira Geração (sistemas em batch, **Multiprogramação** - vários trabalhos estão na memória principal ao mesmo tempo)
+* Quarta Geração (1980 - atual): desktops tão poderosos quanto os mainframes da década de 1970
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### O papel do Sistema Operacional?
+* **Fornecer abstrações**: O hardware possui recursos físicos de baixo nível com interfaces complicadas e idiossincráticas. 
+  * Objetivo: tornar o computador mais fácil de usar.
+  *  É uma **máquina estendida**
+* **Fornece interface padronizda**: O Unix é executado em muitos sistemas de computador muito diferentes. 
+  * Capacidade de portar programas entre sistemas com pouco esforço.
+  
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### O papel do Sistema Operacional?
+* **Mediação do uso de recursos**: permitir que vários usuários compartilhem recursos de maneira justa, eficiente e segura.
+  * Cada programa tem um **tempo e um espaço** no recurso
+  
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Máquina Estendida
+* Transformam o hardware pouco atraente em abstrações mais interessantes 
+  * Esconde detalhes do hardware;
+* Ex.: Um livro de 2007 que descreve a interface dos discos rígidos modernos que um programador deveria saber: ​
+  * Tinha mais de **450 páginas**
+  * Essa interface foi revista múltiplas vezes e é mais complicada do que em 2007.
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Gerenciador de Recursos
+* Fornecer uma alocação ordenada e controlada de processadores, memórias, e dispositivos de E/S entre vários programas que compete por eles
+* Se houver muitos pedidos de recursos possivelmente conflitantes
+  * SO deve decidir em que pedidos serão alocados recursos
+* No caso de um computador com múltiplos usuários:
+  * O SO precisa evitar que usuários possam interferir uns nos outros
+  * Prover proteção da memória, dispositivos de E/S e outros recursos
+  
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class: inverse center middle
+&lt;div class="toplogo"&gt;
+&lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+# Sistemas Operacionais
+## Processos e Threads
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processos 
+* De forma genérica, representa um **fluxo de execução**;
+* Processo não é o mesmo que programa:
+  * Um processo é uma entidade 'ativa': 
+      * Código de programa carregado na memória para execução
+  * Programa é um algoritmo expresso em linguagem de programação 
+      * **Entidade passiva**, pois reside na memória secundária, como o conteúdo de um arquivo armazenado no disco. 
+      * Um programa pode ter vários processos.
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processos
+* *Process control block* - PCB (contexto):
+  * Valor atual do contador do programa (PC);
+  * Conteúdo dos registradores;
+  * A pilha de processo (SP) que contém dados temporários, como parâmetro de sub-rotina e endereço de retorno.
+  * Memória (variáveis globais e memória alocada dinamicamente)
+  * Tabela de arquivos abertos;
+
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processos
+* Uniprogramação (apenas um processo de cada vez) vs Multiprogramação (vários processos ao mesmo tempo)
+  * *Preemptive multitasking*: executa um processo por um tempo, depois tira a CPU desse processo e permite que outro processo seja executado;
+* Processos são separados - **nenhum processo pode afetar diretamente o estado de outro processo**
+* Mudanças de contexto;
+
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:top
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processos - Ciclo de Vida
+
+&lt;div style="text-align:center;"&gt;&lt;img src="img/os-process-state-diagram.png" style="width:42%;"/&gt;&lt;/div&gt;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Kernel
+* Núcleo do sistema operacional
+* Primeiro programa do sistema operacional
+  * Carregado na memória primária para iniciar a operação do sistema. 
+  * Mantido na memória principal até que o sistema seja desligado. 
+* Essencialmente **converte comandos do usuário em algo que a máquina entenda**
+* Ponte entre o software de aplicação do sistema e seu hardware;
+* Responsável pelo **gerenciamento de processos**, **sistemas de arquivo**, **memória**, **permissões de usuários**;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Espaço do Kernel vs Espaço do Usuário
+
+* Mantido e carregado em um espaço de memória separado
+    * **Espaço protegido do Kernel**: protegido contra acesso por programas aplicativos
+* Outros programas de aplicativosusam um espaço de memória separado chamado **espaço do usuário**.
+* O kernel fornece uma API para esses aplicativos por meio de **chamadas de sistema**;
+
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class: middle
+background-image: url("img/white.png")
+background-size: cover
+
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Espaço do Kernel vs Espaço do Usuário
+
+&lt;div style="text-align:center;"&gt;&lt;img src="img/kernel_space.png" style="width:85%;"/&gt;&lt;/div&gt;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+background-image: url("img/white.png")
+background-position: center
+background-size: cover
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Espaço do Kernel vs Espaço do Usuário
+&lt;div style="text-align:center;"&gt;&lt;img src="img/system_calls.png" style="width:60%;"/&gt;&lt;/div&gt;
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class:middle center
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+#### Linux Kernel
+&lt;img src="img/linux_kernel.png" style="width:45%;"/&gt;
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class: middle center inverse
+&lt;img src="img/threading.png" style="width:80%;"/&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Threads
+* Unidade básica que o escalonador de processo usa para permitir que os aplicativos utilizem a CPU.
+  * **Escalonadores escalonam threads**;
+* Tem sua própria pilha e junto com os registradores determina o estado de execução da thread;
+* Executado no contexto de um processo e **todas as threads no mesmo processo compartilham os recursos**;
+* Tthreads compartilham partes de seu estado 
+  * Leitura e escrita na **mesma memória**;
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Threads
+* **Processos Leves**
+* Compartilhamento de espaço de memória simplifica coordenação das threads 
+  * E.g., construir estruturas de dados que representam o estado do sistema para descobrir o que fazer quando precisam processar uma solicitação;
+  
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class: middle center inverse
+
+# Sistemas Operacionais
+## Gerência de Memória
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Gerência de Memória
+* Possibilita o compartilhamento da memória principal;
+  * **Proteção**: Impedir acesso a memória de outros processos.
+  * **Nomenclatura**: Como identificar partes compartilhadas de memória?
+  * **Transparência**: Quanto do gerenciamento fica na mão do usuário?
+  * **Eficiência**: Não deve impor uma sobrecarga de desempenho.
+* Memória dividida em páginas - paginação;
+* Tabela de páginas;
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Gerência de Memória
+* Memória Virtual: estende a memória disponível, armazenando as partes inativas em disco;
+* Memória Swap: espaço em disco utilizado para cópia de partes da RAM;
+  * Costumava ser utilizado como o dobro da memória disponível;
+  * **não deve ser considerado um substituto para mais RAM!**
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processo de Inicialização
+
+1. BIOS/UEFI 
+1. Bootloader
+1. Carregamento do Kernel (*mini-debian*)
+1.  `initd/systemd` (*full-debian*)
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processo de Inicialização - BIOS
+* BIOS (Firmware) gravado na EPROM;
+* *Power On Self Test* (POST) - Detecção de periféricos; 
+* Executado no modo de processador de 16 bits e tem apenas 1 MB de espaço para execução;
+* Tamanho de discos limitado a 2,2 TB;
+
+
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processo de Inicialização - BIOS
+
+&lt;div style="text-align:center;"&gt;&lt;img src="img/bios.png" style="width:60%;"/&gt;&lt;/div&gt;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processo de Inicialização - UEFI
+* *Unified Extensible Firmware Interface*
+* Firmware com capacidade de leitura de partes específicas do disco
+  * Armazena todos os dados sobre inicialização e inicialização em um arquivo `.efi`, em vez de armazená-los no firmware;
+  * *EFI System Partition* (ESP)
+  
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processo de Inicialização - UEFI  
+* Resolve alguns problemas com a BIOS:
+  * Tamanhos de unidade de até **9 zettabytes**;
+  * Tempo de inicialização **mais rápido**;
+  * Segurança como ***Secure Boot***
+      * Impede o computador de inicializar a partir de aplicativos não autorizados / não assinados. 
+      * Ajuda a prevenir rootkits
+  * Executado em **modo 32 ou 64 bits**
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+#### Processo de Inicialização - UEFI
+
+&lt;div style="text-align:center;"&gt;&lt;img src="img/uefi.png" style="width:60%;"/&gt;&lt;/div&gt;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processo de Inicialização
+* Gerenciador de Boot:
+  * **GR**and **U**nified **B**ootloader version 2 (GRUB2)
+  * Escolha de qual Kernel vai ser inicializado;
+  * Ele carrega a imagem do kernel do sistema e a imagem `initrd` para a memória e passa o controle para eles;
+* Inicialização do Kernel
+  * O processo `/init`
+  * `initramfs` - sistema de arquivos temporário usado pelo kernel (imagem `initrd`);
+
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Sistemas Operacionais
+#### Processo de Inicialização
+* `systemd`
+  * O sistema de arquivos raiz é trocado daquele na memória para aquele no sistema de arquivos do disco rígido real;
+  * O processo `/sbin/init` (`systemd`)
+  * `/lib/systemd/system`: configuração padrão do SO;
+  * `/etc/systemd/system`: arquivos de configuração do administrador do sistema;
+  * Inicialização de serviços (rede, montagem de discos, etc.);
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class: center, middle, inverse
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+# Debian GNU/Linux
+## Projeto Debian
+&lt;img src="img/debian_logo.png" style="width:20%;"/&gt;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### O que é?
+* Sistema operacional **completo**, incluindo software para instalação e gerenciamentobaseados no kernel Linux e software livre (especialmente aqueles do projeto GNU);
+* Criado em 1993 por Ian Murdock;
+* [Debian Manifesto](https://www.debian.org/doc/manuals/project-history/manifesto.en.html)
+* 10 arquiteturas de hardware oficialmente suportadas;
+* *Meta-distribuição*;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### Organização do projeto
+* Desenvolvedores Debian (1023 membros)
+  * Responsáveis por pelo menos um pacote;
+  * Organizados em [times](https://wiki.debian.org/Teams);
+* Debian [Policy](https://bugs.debian.org/debian-policy)
+  * Garante regras de qualidade e garantem interoperabilidade de pacotes;
+  * Guidelines técnicos para empacotamento;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### Organização do projeto
+* Papel dos usuários
+  * [Bug report](https://www.debian.org/Bugs/);
+  * [Tradução](https://www.debian.org/international/) e documentação;
+  * Envio de correções de bugs
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### Ciclo de vida de releases
+* 3 a 6 versões de cada programa: 
+  * **Experimental**: software ainda em desenvolvimento;
+  * **Unstable**: Distribuição “de ponta” escolhida por usuários que estão mais preocupados em ter pacotes atualizados do que preocupados com bugs graves;
+  * **Testing**: ausência de bugs críticos, compilando em todas as arquiteturas;
+      * Período de *Freeze*; 
+  * **Stable**: quando o instalador está pronto e quando nenhum programa em Teste tem quaisquer bugs críticos conhecidos;
+  * **Oldstable** e **Oldoldstable** (LTSs)
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### Ciclo de vida de releases
+
+* Debian 12 (bookworm) - testing - sem data de lançamento;
+* Debian 11 (bullseye) - versão estável atual
+* Debian 10 (buster) - versão oldstable atual
+* Debian 9 (stretch) - versão oldoldstable, com suporte LTS
+* Debian 8 (jessie) - lançamento arquivado, com suporte LTS estendido
+* Debian 7 (wheezy) - versão estável obsoleta
+* Debian 6.0 (squeeze) - versão estável obsoleta
+* Debian GNU / Linux 5.0 (lenny) - versão estável obsoleta
+* ...
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle center inverse
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+# Debian GNU/Linux
+## Instalação
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### Particionamento
+&lt;div style="text-align:center;"&gt;&lt;img src="img/debian_parted1.png" style="width:60%;"/&gt;&lt;/div&gt;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### Particionamento
+* Particionamento Guiado:
+  * “Todos os arquivos em uma partição”: toda a árvore do sistema Linux é armazenada em um único sistema de arquivos correspondendo ao diretório raiz `/`
+      * Sistemas pessoais ou de usuário único.
+  * “Partição `/home` separada”: divide a hierarquia de arquivos em duas: uma partição contém o sistema Linux (`/`), e a segunda contém “diretórios pessoais”;
+  * Separe as partições `/home`, `/var` e `/tmp` ”, é apropriado para servidores e sistemas multiusuário;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### Sistemas de Arquivo
+* Definem como os dados se organizam no disco;
+  * e.g., ext4, ext3, ReiserFS, btrfs;
+* *Journal*: possibilita o retorno a um estado consistente anterior após uma interrupção abrupta, sem analisar completamente todo o disco;
+  * Mantém histórico de ações tomadas pelo Sistema de arquivos;
+    * Em caso de falha, consegue reexecutar a última instrução;
+    * Em caso de sistema de arquivos corrompido, se descartam algumas operações;
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+---
+class:middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+## Debian GNU/Linux
+#### Logical Volume Manager - LVM
+* Criar partições lógicas (virtuais) que podem ocupar vários discos;
+* Redimensionar as partições existentes a qualquer momento.
+  * Possivelmente após adicionar um disco adicional quando necessário;
+* *Physical Volumes* (PV), *Volume Groups* (VG) e *Logical Volumes* (LV);
+
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+
+
+
+---
+class: center, middle
+&lt;div class="toplogo"&gt;
+  &lt;img src="img/ai2_logo_256h-1.png" style="width:30%;"/&gt;
+&lt;/div&gt;
+
+# Obrigado!
+
+Slides Criados utilizando pacotes R:
+
+[**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)&lt;br&gt;
+[remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr) e [R Markdown](https://rmarkdown.rstudio.com).
+
+&lt;div class="text-bottom"&gt;Debian GNU/Linux&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
