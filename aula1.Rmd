@@ -144,61 +144,10 @@ class: middle
 ## Sistemas Operacionais
 #### Um pouco de história
 
-* Década de 1940 - primeiras gerações
-  * Os primeiros computadores digitais eletrônicos não tinham sistemas operacionais. 
-  * Programas geralmente eram inseridos um bit por vez em fileiras de interruptores mecânicos. 
-
-<div class="text-bottom">Debian GNU/Linux</div>
-
----
-class: middle
-<div class="toplogo">
-  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
-</div>
-
-## Sistemas Operacionais
-#### Um pouco de história
-* Década de 1950 - segunda geração
-  * Introdução dos cartões perfurados. 
-  * Primeiros sistemas operacionais no início dos anos 1950 para o IBM 701. 
-      * Geralmente funcionava com um *job* de cada vez. 
-      * **Sistemas de processamento em lote:** fluxo único porque os programas e dados eram enviados em  lotes.
-
-<div class="text-bottom">Debian GNU/Linux</div>
-
----
-class:middle
-<div class="toplogo">
-  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
-</div>
-
-## Sistemas Operacionais
-#### Um pouco de história
-
-* Década de 1960 - Terceira Geração (sistemas em batch)
-  * Executando vários *jobs* ao mesmo tempo.
-  * **Multiprogramação**: vários trabalhos estão na memória principal ao mesmo tempo;
-      * Particionar a memória em várias partes, com um trabalho diferente em cada partição. 
-      * Enquanto um trabalho aguardava a conclusão de E/S, outro trabalho poderia estar usando a CPU.
-  * **Time-sharing**: compartilhamento por tempo
-
-<div class="text-bottom">Debian GNU/Linux</div>
-
----
-class:middle
-<div class="toplogo">
-  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
-</div>
-
-## Sistemas Operacionais
-#### Um pouco de história
-
-* Quarta Geração (1980 - atual)
-  * Computador pessoal: desktops tão poderosos quanto os mainframes da década de 1970. 
-  * Dois sistemas operacionais dominaram a cena do computador pessoal: 
-      * **MS-DOS**, escrito pela Microsoft, Inc. para o IBM PC e outras máquinas que usam a CPU Intel 8088 e seus sucessores, e 
-      * **UNIX**, que é dominante nos grandes computadores pessoais que usam o Motorola Família de CPU 6899.
-
+* Década de 1940 - primeiras gerações (primeiros computadores digitais eletrônicos não tinham sistemas operacionais) 
+* Década de 1950 - segunda geração (Introdução dos cartões perfurados, **Sistemas de processamento em lote:**)
+* Década de 1960 - Terceira Geração (sistemas em batch, **Multiprogramação** - vários trabalhos estão na memória principal ao mesmo tempo)
+* Quarta Geração (1980 - atual): desktops tão poderosos quanto os mainframes da década de 1970
 <div class="text-bottom">Debian GNU/Linux</div>
 
 ---
@@ -404,6 +353,22 @@ background-size: cover
 <div style="text-align:center;"><img src="img/system_calls.png" style="width:60%;"/></div>
 <div class="text-bottom">Debian GNU/Linux</div>
 
+
+---
+class:middle center
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+#### Linux Kernel
+<img src="img/linux_kernel.png" style="width:45%;"/>
+<div class="text-bottom">Debian GNU/Linux</div>
+
+
+---
+class: middle center inverse
+<img src="img/threading.png" style="width:80%;"/>
+
 ---
 class:middle
 <div class="toplogo">
@@ -413,12 +378,67 @@ class:middle
 ## Sistemas Operacionais
 #### Threads
 * Unidade básica que o escalonador de processo usa para permitir que os aplicativos utilizem a CPU.
+  * **Escalonadores escalonam threads**;
 * Tem sua própria pilha e junto com os registradores determina o estado de execução da thread;
-* Executado no contexto de um processo e **todos os threads no mesmo processo compartilham os recursos**;
-* Tthreads compartilham partes de seu estado. 
-  * Leitura e escrita na mesma memória. 
-  * Cada thread ainda tem seus próprios registradores e pilha
+* Executado no contexto de um processo e **todas as threads no mesmo processo compartilham os recursos**;
+* Tthreads compartilham partes de seu estado 
+  * Leitura e escrita na **mesma memória**;
 <div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Sistemas Operacionais
+#### Threads
+* **Processos Leves**
+* Compartilhamento de espaço de memória simplifica coordenação das threads 
+  * E.g., construir estruturas de dados que representam o estado do sistema para descobrir o que fazer quando precisam processar uma solicitação;
+  
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
+
+---
+class: middle center inverse
+
+# Sistemas Operacionais
+## Gerência de Memória
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Sistemas Operacionais
+#### Gerência de Memória
+* Possibilita o compartilhamento da memória principal;
+  * **Proteção**: Impedir acesso a memória de outros processos.
+  * **Nomenclatura**: Como identificar partes compartilhadas de memória?
+  * **Transparência**: Quanto do gerenciamento fica na mão do usuário?
+  * **Eficiência**: Não deve impor uma sobrecarga de desempenho.
+* Memória dividida em páginas - paginação;
+* Tabela de páginas;
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Sistemas Operacionais
+#### Gerência de Memória
+* Memória Virtual: estende a memória disponível, armazenando as partes inativas em disco;
+* Memória Swap: espaço em disco utilizado para cópia de partes da RAM;
+  * Costumava ser utilizado como o dobro da memória disponível;
+  * **não deve ser considerado um substituto para mais RAM!**
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
 
 ---
 class:middle
@@ -429,333 +449,311 @@ class:middle
 ## Sistemas Operacionais
 #### Processo de Inicialização
 
+1. BIOS/UEFI 
+1. Bootloader
+1. Carregamento do Kernel (*mini-debian*)
+1.  `initd/systemd` (*full-debian*)
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Sistemas Operacionais
+#### Processo de Inicialização - BIOS
+* BIOS (Firmware) gravado na EPROM;
+* *Power On Self Test* (POST) - Detecção de periféricos; 
+* Executado no modo de processador de 16 bits e tem apenas 1 MB de espaço para execução;
+* Tamanho de discos limitado a 2,2 TB;
+
+
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Sistemas Operacionais
+#### Processo de Inicialização - BIOS
+
+<div style="text-align:center;"><img src="img/bios.png" style="width:60%;"/></div>
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Sistemas Operacionais
+#### Processo de Inicialização - UEFI
+* *Unified Extensible Firmware Interface*
+* Firmware com capacidade de leitura de partes específicas do disco
+  * Armazena todos os dados sobre inicialização e inicialização em um arquivo `.efi`, em vez de armazená-los no firmware;
+  * *EFI System Partition* (ESP)
+  
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Sistemas Operacionais
+#### Processo de Inicialização - UEFI  
+* Resolve alguns problemas com a BIOS:
+  * Tamanhos de unidade de até **9 zettabytes**;
+  * Tempo de inicialização **mais rápido**;
+  * Segurança como ***Secure Boot***
+      * Impede o computador de inicializar a partir de aplicativos não autorizados / não assinados. 
+      * Ajuda a prevenir rootkits
+  * Executado em **modo 32 ou 64 bits**
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+#### Processo de Inicialização - UEFI
+
+<div style="text-align:center;"><img src="img/uefi.png" style="width:60%;"/></div>
+
 <div class="text-bottom">Debian GNU/Linux</div>
 
 
 ---
-## Typography
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-Text can be **bold**, _italic_, ~~strikethrough~~, or `inline code`.
+## Sistemas Operacionais
+#### Processo de Inicialização
+* Gerenciador de Boot:
+  * **GR**and **U**nified **B**ootloader version 2 (GRUB2)
+  * Escolha de qual Kernel vai ser inicializado;
+  * Ele carrega a imagem do kernel do sistema e a imagem `initrd` para a memória e passa o controle para eles;
+* Inicialização do Kernel
+  * O processo `/init`
+  * `initramfs` - sistema de arquivos temporário usado pelo kernel (imagem `initrd`);
 
-[Link to another slide](#colors).
 
-### Lorem Ipsum
-
-Dolor imperdiet nostra sapien scelerisque praesent curae metus facilisis dignissim tortor. 
-Lacinia neque mollis nascetur neque urna velit bibendum. 
-Himenaeos suspendisse leo varius mus risus sagittis aliquet venenatis duis nec.
-
-- Dolor cubilia nostra nunc sodales
-
-- Consectetur aliquet mauris blandit
-
-- Ipsum dis nec porttitor urna sed
-
----
-name: colors
-
-## Colors
-
-.left-column[
-Text color
-
-[Link Color](#3)
-
-**Bold Color**
-
-_Italic Color_
-
-`Inline Code`
-]
-
-.right-column[
-Lorem ipsum dolor sit amet, [consectetur adipiscing elit (link)](#3), 
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Erat nam at lectus urna.
-Pellentesque elit ullamcorper **dignissim cras tincidunt (bold)** lobortis feugiat. 
-_Eros donec ac odio tempor_ orci dapibus ultrices. 
-Id porta nibh venenatis cras sed felis eget velit aliquet.
-Aliquam id diam maecenas ultricies mi.
-Enim sit amet 
-`code_color("inline")`
-venenatis urna cursus eget nunc scelerisque viverra.
-]
+<div class="text-bottom">Debian GNU/Linux</div>
 
 ---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-# Big Topic or Inverse Slides `#`
+## Sistemas Operacionais
+#### Processo de Inicialização
+* `systemd`
+  * O sistema de arquivos raiz é trocado daquele na memória para aquele no sistema de arquivos do disco rígido real;
+  * O processo `/sbin/init` (`systemd`)
+  * `/lib/systemd/system`: configuração padrão do SO;
+  * `/etc/systemd/system`: arquivos de configuração do administrador do sistema;
+  * Inicialização de serviços (rede, montagem de discos, etc.);
 
-## Slide Headings `##`
-
-### Sub-slide Headings `###`
-
-#### Bold Call-Out `####`
-
-This is a normal paragraph text. Only use header levels 1-4.
-
-##### Possible, but not recommended `#####`
-
-###### Definitely don't use h6 `######`
-
----
-
-# Left-Column Headings
-
-.left-column[
-## First
-
-## Second
-
-## Third
-]
-
-.right-column[
-Dolor quis aptent mus a dictum ultricies egestas.
-
-Amet egestas neque tempor fermentum proin massa!
-
-Dolor elementum fermentum pharetra lectus arcu pulvinar.
-]
+<div class="text-bottom">Debian GNU/Linux</div>
 
 ---
-class: inverse center middle
+class: center, middle, inverse
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-# Topic Changing Interstitial
+# Debian GNU/Linux
+## Projeto Debian
+<img src="img/debian_logo.png" style="width:20%;"/>
 
---
-
-```
-class: inverse center middle
-```
-
----
-layout: true
-
-## Blocks
+<div class="text-bottom">Debian GNU/Linux</div>
 
 ---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-### Blockquote
+## Debian GNU/Linux
+#### O que é?
+* Sistema operacional **completo**, incluindo software para instalação e gerenciamentobaseados no kernel Linux e software livre (especialmente aqueles do projeto GNU);
+* Criado em 1993 por Ian Murdock;
+* [Debian Manifesto](https://www.debian.org/doc/manuals/project-history/manifesto.en.html)
+* 10 arquiteturas de hardware oficialmente suportadas;
+* *Meta-distribuição*;
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
----
-
-### Code Blocks
-
-#### R Code
-
-```{r eval=FALSE}
-ggplot(gapminder) +
-  aes(x = gdpPercap, y = lifeExp, size = pop, color = country) +
-  geom_point() +
-  facet_wrap(~year)
-```
-
-#### JavaScript
-
-```js
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
----
-
-### More R Code
-
-```{r eval=FALSE}
-dplyr::starwars %>% dplyr::slice_sample(n = 4)
-```
-
----
-
-```{r message=TRUE, eval=requireNamespace("cli", quietly = TRUE)}
-cli::cli_alert_success("It worked!")
-```
-
---
-
-```{r message=TRUE}
-message("Just a friendly message")
-```
-
---
-
-```{r warning=TRUE}
-warning("This could be bad...")
-```
-
---
-
-```{r error=TRUE}
-stop("I hope you're sitting down for this")
-```
+<div class="text-bottom">Debian GNU/Linux</div>
 
 
 ---
-layout: true
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-## Tables
+## Debian GNU/Linux
+#### Organização do projeto
+* Desenvolvedores Debian (1023 membros)
+  * Responsáveis por pelo menos um pacote;
+  * Organizados em [times](https://wiki.debian.org/Teams);
+* Debian [Policy](https://bugs.debian.org/debian-policy)
+  * Garante regras de qualidade e garantem interoperabilidade de pacotes;
+  * Guidelines técnicos para empacotamento;
 
----
-exclude: `r if (requireNamespace("tibble", quietly=TRUE)) "false" else "true"`
-
-```{r eval=requireNamespace("tibble", quietly=TRUE)}
-tibble::as_tibble(mtcars)
-```
-
----
-
-```{r}
-knitr::kable(head(mtcars), format = 'html')
-```
-
----
-exclude: `r if (requireNamespace("DT", quietly=TRUE)) "false" else "true"`
-
-```{r eval=requireNamespace("DT", quietly=TRUE)}
-DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
-```
+<div class="text-bottom">Debian GNU/Linux</div>
 
 ---
-layout: true
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-## Lists
+## Debian GNU/Linux
+#### Organização do projeto
+* Papel dos usuários
+  * [Bug report](https://www.debian.org/Bugs/);
+  * [Tradução](https://www.debian.org/international/) e documentação;
+  * Envio de correções de bugs
 
----
-
-.pull-left[
-#### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-]
-
-.pull-right[
-
-#### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-]
+<div class="text-bottom">Debian GNU/Linux</div>
 
 ---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-### And a nested list:
+## Debian GNU/Linux
+#### Ciclo de vida de releases
+* 3 a 6 versões de cada programa: 
+  * **Experimental**: software ainda em desenvolvimento;
+  * **Unstable**: Distribuição “de ponta” escolhida por usuários que estão mais preocupados em ter pacotes atualizados do que preocupados com bugs graves;
+  * **Testing**: ausência de bugs críticos, compilando em todas as arquiteturas;
+      * Período de *Freeze*; 
+  * **Stable**: quando o instalador está pronto e quando nenhum programa em Teste tem quaisquer bugs críticos conhecidos;
+  * **Oldstable** e **Oldoldstable** (LTSs)
 
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
----
-
-### Nesting an ol in ul in an ol
-
-- level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-- level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-  1. level 4 item (ol)
-  1. level 4 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-- level 1 item (ul)
+<div class="text-bottom">Debian GNU/Linux</div>
 
 ---
-layout: true
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-## Plots
+## Debian GNU/Linux
+#### Ciclo de vida de releases
 
----
+* Debian 12 (bookworm) - testing - sem data de lançamento;
+* Debian 11 (bullseye) - versão estável atual
+* Debian 10 (buster) - versão oldstable atual
+* Debian 9 (stretch) - versão oldoldstable, com suporte LTS
+* Debian 8 (jessie) - lançamento arquivado, com suporte LTS estendido
+* Debian 7 (wheezy) - versão estável obsoleta
+* Debian 6.0 (squeeze) - versão estável obsoleta
+* Debian GNU / Linux 5.0 (lenny) - versão estável obsoleta
+* ...
 
-```{r plot-example, eval=requireNamespace("ggplot2", quietly=TRUE)}
-library(ggplot2)
-(g <- ggplot(mpg) + aes(hwy, cty, color = class) + geom_point())
-```
-
----
-
-```{r plot-example-themed, eval=requireNamespace("ggplot2", quietly=TRUE)}
-g + xaringanthemer::theme_xaringan(text_font_size = 16, title_font_size = 18) +
-  ggtitle("A Plot About Cars")
-```
-
----
-layout: false
-
-## Square image
-
-<center><img src="https://octodex.github.com/images/labtocat.png" height="400px" /></center>
-
-.footnote[GitHub Octocat]
+<div class="text-bottom">Debian GNU/Linux</div>
 
 ---
+class:middle center inverse
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-### Wide image
+# Debian GNU/Linux
+## Instalação
 
-![](https://guides.github.com/activities/hello-world/branching.png)
-
-.footnote[Wide images scale to 100% slide width]
-
----
-
-## Two images
-
-.pull-left[
-![](https://octodex.github.com/images/motherhubbertocat.png)
-]
-
-.pull-right[
-![](https://octodex.github.com/images/dinotocat.png)
-]
+<div class="text-bottom">Debian GNU/Linux</div>
 
 ---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-### Definition lists can be used with HTML syntax.
+## Debian GNU/Linux
+#### Particionamento
+<div style="text-align:center;"><img src="img/debian_parted1.png" style="width:60%;"/></div>
 
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Debian GNU/Linux
+#### Particionamento
+* Particionamento Guiado:
+  * “Todos os arquivos em uma partição”: toda a árvore do sistema Linux é armazenada em um único sistema de arquivos correspondendo ao diretório raiz `/`
+      * Sistemas pessoais ou de usuário único.
+  * “Partição `/home` separada”: divide a hierarquia de arquivos em duas: uma partição contém o sistema Linux (`/`), e a segunda contém “diretórios pessoais”;
+  * Separe as partições `/home`, `/var` e `/tmp` ”, é apropriado para servidores e sistemas multiusuário;
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Debian GNU/Linux
+#### Sistemas de Arquivo
+* Definem como os dados se organizam no disco;
+  * e.g., ext4, ext3, ReiserFS, btrfs;
+* *Journal*: possibilita o retorno a um estado consistente anterior após uma interrupção abrupta, sem analisar completamente todo o disco;
+  * Mantém histórico de ações tomadas pelo Sistema de arquivos;
+    * Em caso de falha, consegue reexecutar a última instrução;
+    * Em caso de sistema de arquivos corrompido, se descartam algumas operações;
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
+---
+class:middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
+
+## Debian GNU/Linux
+#### Logical Volume Manager - LVM
+* Criar partições lógicas (virtuais) que podem ocupar vários discos;
+* Redimensionar as partições existentes a qualquer momento.
+  * Possivelmente após adicionar um disco adicional quando necessário;
+* *Physical Volumes* (PV), *Volume Groups* (VG) e *Logical Volumes* (LV);
+
+
+<div class="text-bottom">Debian GNU/Linux</div>
+
+
 
 ---
 class: center, middle
+<div class="toplogo">
+  <img src="img/ai2_logo_256h-1.png" style="width:30%;"/>
+</div>
 
-# Thanks!
+# Obrigado!
 
-Slides created via the R packages:
+Slides Criados utilizando pacotes R:
 
 [**xaringan**](https://github.com/yihui/xaringan)<br>
-[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)<br>
+[remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr) e [R Markdown](https://rmarkdown.rstudio.com).
 
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+<div class="text-bottom">Debian GNU/Linux</div>
